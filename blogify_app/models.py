@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 from datetime import datetime
 from blogify_app import db, login_manager
 from flask_login import UserMixin
