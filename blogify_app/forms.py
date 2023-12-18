@@ -26,6 +26,15 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     def validate_username(self, username):
+        """
+        Validate the uniqueness of the chosen username.
+
+        Args:
+            username (StringField): User's chosen username.
+
+        Raises:
+            ValidationError: If the username is already taken.
+        """
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError('That username is taken, Please choose another one')
