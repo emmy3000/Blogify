@@ -61,6 +61,12 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Log in an existing user.
+
+    Returns:
+        str: Rendered HTML template.
+    """
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = LoginForm()
