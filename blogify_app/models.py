@@ -39,6 +39,12 @@ class User(db.Model, UserMixin):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
+        """
+        String representation of the User object.
+
+        Returns:
+            str: A formatted string representing the User object.
+        """
         return 'User("{}", "{}", "{}")'.format(self.username, self.email, self.image_file)
 
 
