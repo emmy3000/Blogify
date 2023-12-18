@@ -49,6 +49,16 @@ class User(db.Model, UserMixin):
 
 
 class Post(db.Model):
+    """
+    Class representing a blog post in the application.
+
+    Attributes:
+        id (int): The unique identifier for the post.
+        title (str): The title of the post.
+        date_posted (datetime): The date and time when the post was created.
+        content (str): The content of the post.
+        user_id (int): The ID of the user who authored the post.
+    """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
