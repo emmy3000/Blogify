@@ -126,6 +126,12 @@ def save_picture(form_picture):
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
+    """
+    Render and update the user's account information.
+
+    Returns:
+        str: Rendered HTML template.
+    """
     form = UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
