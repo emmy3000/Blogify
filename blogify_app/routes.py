@@ -178,6 +178,15 @@ def new_post():
 
 @app.route('/post/<int:post_id>')
 def post(post_id):
+    """
+    Render a specific blog post.
+
+    Args:
+        post_id (int): The ID of the blog post.
+
+    Returns:
+        str: Rendered HTML template.
+    """
     post = Post.query.get_or_404(post_id)
     return render_template('post.html', title=post.title, post=post)
 
