@@ -156,6 +156,12 @@ def account():
 @app.route('/post/new', methods=['GET', 'POST'])
 @login_required
 def new_post():
+    """
+    Create a new blog post.
+
+    Returns:
+        str: Rendered HTML template.
+    """
     form = PostForm()
     if form.validate_on_submit():
         post = Post(
