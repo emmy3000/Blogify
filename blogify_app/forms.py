@@ -86,6 +86,15 @@ class UpdateAccountForm(FlaskForm):
     submit = SubmitField('Update')
 
     def validate_username(self, username):
+        """
+        Validate the uniqueness of the updated username.
+
+        Args:
+            username (StringField): Updated username.
+
+        Raises:
+            ValidationError: If the updated username is already taken.
+        """
         user = User.query.filter_by(username=username.data).first()
         if user is not None and username.data != current_user.username:
             raise ValidationError('That username is taken, Please choose another one')
