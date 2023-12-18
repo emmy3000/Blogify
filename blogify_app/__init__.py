@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -28,6 +28,9 @@ login_manager.login_view = 'login'
 
 # Set the category for displaying login messages
 login_manager.login_message_category = 'info'
+
+# Import the models module after initializing the app and extensions
+from blogify_app.models import User, Post
 
 # Import the routes module after initializing the app and extensions
 from blogify_app import routes
