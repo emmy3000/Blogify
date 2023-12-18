@@ -1,3 +1,3 @@
-# BLOGIFY
+# Blogify
 
 A Webstack - Portfolio Project
