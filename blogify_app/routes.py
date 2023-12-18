@@ -194,6 +194,15 @@ def post(post_id):
 @app.route('/post/<int:post_id>/update', methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
+    """
+    Update an existing blog post.
+
+    Args:
+        post_id (int): The ID of the blog post.
+
+    Returns:
+        str: Rendered HTML template.
+    """
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
