@@ -20,6 +20,17 @@ def load_user(user_id):
 
 
 class User(db.Model, UserMixin):
+    """
+    Class representing a user in the blog application.
+
+    Attributes:
+        id (int): The unique identifier for the user.
+        username (str): The username of the user.
+        email (str): The email address of the user.
+        image_file (str): The filename of the user's profile picture.
+        password (str): The hashed password of the user.
+        posts (list): List of posts authored by the user.
+    """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
