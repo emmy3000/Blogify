@@ -148,7 +148,7 @@ def account():
     image_file = url_for(
         'static',
         filename='profile_pics/' +
-        current_user.image_file)
+                 current_user.image_file)
     return render_template('account.html', title='Account',
                            image_file=image_file, form=form)
 
@@ -223,6 +223,15 @@ def update_post(post_id):
 @app.route('/post/<int:post_id>/delete', methods=['POST'])
 @login_required
 def delete_post(post_id):
+    """
+    Delete an existing blog post.
+
+    Args:
+        post_id (int): The ID of the blog post.
+
+    Returns:
+        str: Redirect to the home page.
+    """
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
