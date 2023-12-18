@@ -66,4 +66,10 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
+        """
+        String representation of the Post object.
+
+        Returns:
+            str: A formatted string representing the Post object.
+        """
         return 'Post("{}", "{}")'.format(self.title, self.date_posted)
