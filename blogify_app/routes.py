@@ -96,6 +96,16 @@ def logout():
 
 
 def save_picture(form_picture):
+    """
+    Save and resize the user's profile picture.
+
+    Args:
+        form_picture (FileStorage): The user's uploaded
+        profile picture.
+
+    Returns:
+        str: Filename of the saved picture.
+    """
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
