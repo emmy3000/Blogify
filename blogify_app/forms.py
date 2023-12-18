@@ -115,6 +115,14 @@ class UpdateAccountForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
+    """
+    Form for creating a new blog post.
+
+    Attributes:
+        title (StringField): Title of the new blog post.
+        content (TextAreaField): Content of the new blog post.
+        submit (SubmitField): Button to submit the new blog post form.
+    """
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
