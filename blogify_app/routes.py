@@ -36,6 +36,12 @@ def about():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    """
+    Register a new user.
+
+    Returns:
+        str: Rendered HTML template.
+    """
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     form = RegistrationForm()
