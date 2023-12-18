@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from flaskblog import app
+from blogify_app import app
 
 
 if __name__ == '__main__':
