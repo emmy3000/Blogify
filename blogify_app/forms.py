@@ -71,6 +71,15 @@ class LoginForm(FlaskForm):
 
 
 class UpdateAccountForm(FlaskForm):
+    """
+    Form for updating user account information.
+
+    Attributes:
+        username (StringField): Updated username.
+        email (StringField): Updated email address.
+        picture (FileField): Updated profile picture file.
+        submit (SubmitField): Button to submit the update account form.
+    """
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     picture = FileField('Update Profile Piture', validators=[FileAllowed(['jpg', 'png'])])
