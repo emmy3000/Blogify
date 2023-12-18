@@ -40,6 +40,15 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('That username is taken, Please choose another one')
 
     def validate_email(self, email):
+        """
+        Validate the uniqueness of the chosen email address.
+
+        Args:
+            email (StringField): User's email address.
+
+        Raises:
+            ValidationError: If the email address is already taken.
+        """
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('That email is taken, Please choose another one')
