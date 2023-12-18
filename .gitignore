@@ -1,0 +1,98 @@
+# Sensitive configurations
+config.txt
+secrets.json
+logs/
+
+# MongoDB Data Storage Facility
+data/db/
+
+# Ignore log files
+*.log
+
+# Ignore temporary directories
+temp-*/
+
+# Ignore temp directories within the "assets" directory
+assets/**/tmp/
+
+# Ignore compiled binaries
+*.exe
+
+# Ignore all files in the "docs" directory except "important.doc"
+/docs/*
+!/docs/important.doc
+
+# Ignore system and temporary files
+.DS_Store
+Thumbs.db
+.tmp/
+
+# Build artifacts
+/logs/
+/build/
+
+# IDE configurations
+.idea/
+.vscode/
+
+# General builds
+/dist/
+/node_modules/
+
+# MongoDB project's environment variable
+/.0x01-nosql-env/
+
+# Local configuration files
+config/*.local
+
+# Python-related files and directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite
+
+# Virtual environments
+env/
+venv/
+.venv/
+.virtualenv/
+.venv/
+env.bak/
+.venv.bak/
+.venv.old/
+.env
+
+# Jupyter Notebook files
+.ipynb_checkpoints/
+*.ipynb
+.nbconvert/
+
+# Coverage reports
+.coverage
+htmlcov/
+
+# Python log files
+*.log
+
+# Python caches
+*.cache/
+
+# Site packages
+site-packages/
+
+# Python distribution/packaging
+dist/
+build/
+egg-info/
+
+# Sphinx documentation
+_build/
+
+# MyPy
+.mypy_cache/
+
+# PyInstaller
+dist/
+__pycache__/
