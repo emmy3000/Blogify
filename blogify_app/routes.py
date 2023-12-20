@@ -248,9 +248,25 @@ def delete_post(post_id):
 
 @app.route('/user/<string:username>')
 def user_posts(username):
+    """
+    Render the page displaying blog posts by a specific user.
+
+    - This route retrieves blog posts authored by the specified user
+      and paginates them for display on the user's posts page.
+    - The number of posts per page is set to 5 by default.
+
+    Parameters:
+        username (str): The username of the target user.
+
+    Returns:
+        str: Rendered HTML template displaying blog posts by the user.
+
+    Raises:
+        404: If no user with the specified username is found.
+    """
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()
-    posts = Post.query.filter_by(author=user).\
-        order_by(Post.date_posted.desc()).\
+    posts = Post.query.filter_by(author=user). \
+        order_by(Post.date_posted.desc()). \
         paginate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)
