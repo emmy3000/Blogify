@@ -26,6 +26,7 @@ pathspec==0.12.1
 Pillow==10.0.0
 platformdirs==4.1.0
 pycodestyle==2.11.1
+python-dotenv==1.0.0
 SQLAlchemy==2.0.20
 typing_extensions==4.7.1
 Werkzeug==2.3.7
