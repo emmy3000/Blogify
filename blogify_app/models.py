@@ -8,7 +8,6 @@ from flask_login import UserMixin
 import os
 import json
 
-# Load environment variables from .env file
 load_dotenv()
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
