@@ -1,8 +1,17 @@
 #!/usr/bin/python3
 
+from dotenv import load_dotenv
 from datetime import datetime
-from blogify_app import db, login_manager
+from itsdangerous import TimestampSigner, BadSignature, SignatureExpired
+from blogify_app import db, login_manager, app
 from flask_login import UserMixin
+import os
+import json
+
+# Load environment variables from .env file
+load_dotenv()
+
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 
 @login_manager.user_loader
@@ -37,6 +46,37 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpeg')
     password = db.Column(db.String(120), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
+
+    def get_reset_token(self):
+        """
+        Generate a time-sensitive reset token for the user.
+
+        - This method creates a reset token for the user by signing a
+        JSON object containing the user's ID using a timestamped
+        signature.
+        - The token is used for securely resetting the user's
+        password.
+
+        Returns:
+            str: A signed token containing the user's ID.
+        """
+        s = TimestampSigner(app.config['SECRET_KEY'])
+        signed_value = s.sign(json.dumps({'user_id': self.id}))
+        return signed_value
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = TimestampSigner(app.config['SECRET_KEY'])
+        try:
+            unsigned_value = s.unsign(token, max_age=1800, return_timestamp=True)
+            user_id = json.loads(unsigned_value[0].decode('utf-8'))['user_id']
+        except SignatureExpired:
+            print('Token has expired.')
+            return None
+        except BadSignature:
+            print('Invalid signature.')
+            return None
+        return User.query.get(user_id)
 
     def __repr__(self):
         """
