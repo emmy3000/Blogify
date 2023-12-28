@@ -126,3 +126,50 @@ class PostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
+
+
+class RequestResetForm(FlaskForm):
+    """
+    Form class for handling user requests to reset their password.
+
+    Attributes:
+        email (StringField): Input field for the user's email address.
+            Validators: DataRequired, Email
+        submit (SubmitField): Button to submit the password reset request.
+
+    Note:
+        - This form is used to collect the user's email address when
+          initiating the password reset process.
+        - The email field must
+         be filled with a valid email address for the process to proceed.
+    """
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
+
+    def validate_email(self, email):
+        """
+        Validate the email address entered for password reset.
+
+        Args:
+            email (StringField): The email address entered by the user.
+
+        Raises:
+            ValidationError: If no user account is found with the entered email.
+                The user must register first to initiate a password reset.
+
+        Note:
+            - This method checks if a user account exists
+              with the provided email.
+            - If no account is found, a ValidationError is raised,
+              indicating that the user must register first before initiating
+              a password reset.
+        """
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError('There is no account with that email. You must register first.')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Reset Password')
