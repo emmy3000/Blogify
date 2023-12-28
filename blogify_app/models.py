@@ -1,4 +1,17 @@
 #!/usr/bin/python3
+"""
+Defines the database models for user authentication
+and blog post management in the Blogify web application.
+
+This module includes the definition of two main classes:
+- User: Represents a user in the blog application with attributes
+  such as username, email, and posts.
+- Post: Represents a blog post with attributes like title, content,
+  and the date it was posted.
+
+These models are used in conjunction with Flask-SQLAlchemy to create
+and interact with the underlying database tables.
+"""
 
 from dotenv import load_dotenv
 from datetime import datetime
@@ -10,7 +23,7 @@ import json
 
 load_dotenv()
 
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 
 @login_manager.user_loader
@@ -69,12 +82,13 @@ class User(db.Model, UserMixin):
         - Instances of this class represent individual users
           with associated attributes.
     """
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpeg')
+    image_file = db.Column(db.String(20), nullable=False, default="default.jpeg")
     password = db.Column(db.String(120), nullable=False)
-    posts = db.relationship('Post', backref='author', lazy=True)
+    posts = db.relationship("Post", backref="author", lazy=True)
 
     def get_reset_token(self):
         """
@@ -89,8 +103,8 @@ class User(db.Model, UserMixin):
         Returns:
             str: A signed token containing the user's ID.
         """
-        s = TimestampSigner(app.config['SECRET_KEY'])
-        signed_value = s.sign(json.dumps({'user_id': self.id}))
+        s = TimestampSigner(app.config["SECRET_KEY"])
+        signed_value = s.sign(json.dumps({"user_id": self.id}))
         return signed_value
 
     @staticmethod
@@ -112,15 +126,15 @@ class User(db.Model, UserMixin):
             BadSignature: If the token has an invalid signature
               i.e. It has been maliciously tampered with by a hacker.
         """
-        s = TimestampSigner(app.config['SECRET_KEY'])
+        s = TimestampSigner(app.config["SECRET_KEY"])
         try:
             unsigned_value = s.unsign(token, max_age=1800, return_timestamp=True)
-            user_id = json.loads(unsigned_value[0].decode('utf-8'))['user_id']
+            user_id = json.loads(unsigned_value[0].decode("utf-8"))["user_id"]
         except SignatureExpired:
-            print('Token has expired.')
+            print("Token has expired.")
             return None
         except BadSignature:
-            print('Invalid signature.')
+            print("Invalid signature.")
             return None
         return User.query.get(user_id)
 
@@ -137,7 +151,9 @@ class User(db.Model, UserMixin):
               The format includes the username, email, and image_file
               attributes of the User.
         """
-        return 'User("{}", "{}", "{}")'.format(self.username, self.email, self.image_file)
+        return 'User("{}", "{}", "{}")'.format(
+            self.username, self.email, self.image_file
+        )
 
 
 class Post(db.Model):
@@ -172,11 +188,12 @@ class Post(db.Model):
           with associated attributes.
 
     """
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     content = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
     def __repr__(self):
         """
