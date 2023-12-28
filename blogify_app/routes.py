@@ -4,10 +4,11 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, abort
-from blogify_app import app, db, bcrypt
-from blogify_app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from blogify_app import app, db, bcrypt, mail
+from blogify_app.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm, RequestResetForm, ResetPasswordForm
 from blogify_app.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
+from flask_mail import Message
 
 
 @app.route('/')
@@ -221,8 +222,7 @@ def update_post(post_id):
     elif request.method == 'GET':
         form.title.data = post.title
         form.title.content = post.content
-    return render_template(
-        'create_post.html', title='Update Post', form=form, legend='Update Post')
+    return render_template('create_post.html', title='Update Post', form=form, legend='Update Post')
 
 
 @app.route('/post/<int:post_id>/delete', methods=['POST'])
@@ -255,7 +255,7 @@ def user_posts(username):
       and paginates them for display on the user's posts page.
     - The number of posts per page is set to 5 by default.
 
-    Parameters:
+    Args:
         username (str): The username of the target user.
 
     Returns:
@@ -270,3 +270,77 @@ def user_posts(username):
         order_by(Post.date_posted.desc()). \
         paginate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)
+
+
+def send_reset_email(user):
+    try:
+        token = user.get_reset_token()
+        msg = Message('Password Reset Request', sender='emodiemeka@outlook.com', recipients=[user.email])
+        msg.body = f'''To reset your password visit the following link:
+        {url_for('reset_token', token=token, _external=True)}
+
+        If did not make this request then simply ignore this email and no changes will be made.
+        '''
+        mail.send(msg)
+    except Exception as e:
+        print(f"Error sending email: {e}")
+
+
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_request():
+    """
+    Handle user requests to reset their password.
+
+    This route function is responsible for processing user requests
+    to reset their password. If the user is already authenticated,
+    they are redirected to the home page. Otherwise, a form is
+    displayed to collect the user's email address for initiating
+    the password reset process.
+
+    Methods:
+        - GET: Display the password reset request form.
+        - POST: Process the submitted form, send a password reset
+          email, and redirect to the login page.
+
+    Returns:
+        If the form submission is successful, the user is redirected
+        to the login page with a flash message indicating that an email
+        with reset instructions has been sent. Otherwise, the reset
+        request form is displayed.
+
+    Note:
+        - This route is accessible to non-authenticated users only.
+        - The `RequestResetForm` class is used for handling the password
+          reset request form.
+        - Upon successful form submission, a reset email is sent using
+          the `send_reset_email` function.
+        - A flash message is displayed to inform the user about the
+          email being sent.
+    """
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    form = RequestResetForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        send_reset_email(user)
+        flash('An email has been sent with instructions to reset your password.', 'info')
+        return redirect(url_for('login'))
+    return render_template('reset_request.html', title='Reset Password', form=form)
+
+
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_token(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    user = User.verify_reset_token(token)
+    if user is None:
+        flash('That is an invalid or expired token.', 'warning')
+        return redirect(url_for('reset_request'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user.password = hashed_password
+        db.session.commit()
+        flash("Your password has now been updated! You're now able to log in", 'success')
+        return redirect(url_for('login'))
+    return render_template('reset_token.html', title='Reset Password', form=form)
