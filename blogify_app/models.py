@@ -65,6 +65,23 @@ class User(db.Model, UserMixin):
 
     @staticmethod
     def verify_reset_token(token):
+        """
+        Verifies the validity of a reset token generated
+        by the 'get_reset_token' method.
+
+        Args:
+            token (str): The reset token to be verified.
+
+        Returns:
+            User: The User object associated with the verified token
+                if the token is valid.
+            None: If the token is invalid or has expired.
+
+        Raises:
+            SignatureExpired: If the token has expired.
+            BadSignature: If the token has an invalid signature
+                         i.e. it has been tampered with.
+        """
         s = TimestampSigner(app.config['SECRET_KEY'])
         try:
             unsigned_value = s.unsign(token, max_age=1800, return_timestamp=True)
