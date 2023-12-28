@@ -11,7 +11,7 @@ instance/site.db
 
 # Environment-specific files
 .env
-.blogify_env
+.blogify_env/
 
 # Dependency directories (if applicable)
 venv/
