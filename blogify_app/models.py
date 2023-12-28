@@ -110,7 +110,7 @@ class User(db.Model, UserMixin):
         Raises:
             SignatureExpired: If the token has expired.
             BadSignature: If the token has an invalid signature
-                        i.e. it has been tampered with.
+              i.e. It has been maliciously tampered with by a hacker.
         """
         s = TimestampSigner(app.config['SECRET_KEY'])
         try:
