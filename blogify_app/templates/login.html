@@ -1,4 +1,5 @@
 {% extends "layout.html" %}
+
 {% block content %}
     <!-- Login Form Section -->
     <div class="content-section">
@@ -45,11 +46,11 @@
             <!-- Submit Button -->
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
+                <!-- Forgot Password Link -->
+                <small class="text-muted ml-2">
+                    <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
+                </small>
             </div>
-            <!-- Forgot Password Link -->
-            <small class="text-muted ml-2">
-                <a href="#">Forgot Password?</a>
-            </small>
         </form>
     </div>
 
