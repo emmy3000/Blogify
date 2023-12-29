@@ -1,10 +1,10 @@
 """
 Initialize the Flask application and its extensions.
 
-- This module serves as the entry point for initializing the Flask
-  application and configuring its extensions.
-- It sets up essential components such as database connectivity, user
-  authentication, and email handling.
+- This module serves as the entry point for initializing
+  the Flask application and configuring its extensions.
+- It sets up essential components such as database connectivity,
+  user authentication, and email handling.
 - Additionally, it imports and registers blueprints for different
   application modules.
 
@@ -17,59 +17,86 @@ Attributes:
 
 The module also imports models and registers blueprints
 for 'users', 'posts', and 'main'.
+
+ Author: Emeka Emodi<emodiemeka@gmail.com>
 """
 
-
 from dotenv import load_dotenv
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
+from blogify_app.config import Config
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Create a Flask application instance
-app = Flask(__name__)
+# Initialize SQLAlchemy database with Flask app
+db = SQLAlchemy()
 
-# Initialize configuration variables with environment variables
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
-app.config["MAIL_SERVER"] = os.environ.get("MAIL_SERVER")
-app.config["MAIL_PORT"] = os.environ.get("MAIL_PORT")
-app.config["MAIL_USE_TLS"] = os.environ.get("MAIL_USE_TLS")
-app.config["MAIL_USERNAME"] = os.environ.get("EMAIL_USER")
-app.config["MAIL_PASSWORD"] = os.environ.get("EMAIL_PASSWORD")
+# Initialize Bcrypt for password hashing with Flask app
+bcrypt = Bcrypt()
 
-# Initialize SQLAlchemy database with the Flask application instance
-db = SQLAlchemy(app)
+# Init. and handle user login sessions with Flask app
+login_manager = LoginManager()
 
-# Initialize Bcrypt for password hashing with the Flask application instance
-bcrypt = Bcrypt(app)
-
-# Initialization and managemen of users login sessions with the Flask application instance.
-login_manager = LoginManager(app)
-
-# Define the view name for login redirection if user is not authenticated
+# Define view name for login redirection if user not authenticated
 login_manager.login_view = "users.login"
 
-# Set the message category for login messages
+# Set message category for login messages
 login_manager.login_message_category = "info"
 
-# Initialize Mail extension with the Flask application instance for email handling
-mail = Mail(app)
+# Initialize Mail extension with Flask app for email handling
+mail = Mail()
 
-# Import the models module after initializing the app and extensions
+# Import models module after initializing app and extensions
 from blogify_app.models import User, Post
 
-# Importing the blueprint instances for the 'users', 'posts', and 'main' modules
-from blogify_app.users.routes import users
-from blogify_app.posts.routes import posts
-from blogify_app.main.routes import main
 
-# Registering the blueprints with the Flask application instance
-app.register_blueprint(users)
-app.register_blueprint(posts)
-app.register_blueprint(main)
+def create_app(config_class=Config):
+    """
+    Factory function to create the Blogify Flask application.
+
+    This function initializes and configures the Flask application,
+    along with associated extensions (Flask-SQLAlchemy, Flask-Bcrypt,
+    Flask-Login, Flask-Mail). It registers blueprints for different
+    application components (users, posts, main) to organize routes
+    and views.
+
+    Args:
+        config_class (class, optional): The configuration class to use.
+            Defaults to Config.
+
+    Returns:
+        Flask: The configured Flask application instance.
+
+    Usage:
+        app = create_app()
+        app.run()
+
+    Note:
+        - The configuration parameters are set using the provided
+          config_class or the default Config class.
+        - The database, password hashing, login management, and email
+          handling are initialized and associated with the app.
+        - Blueprints are registered to organize routes for different
+          components of the application.
+    """
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+
+    db.init_app(app)
+    bcrypt.init_app(app)
+    login_manager.init_app(app)
+    mail.init_app(app)
+
+    from blogify_app.users.routes import users
+    from blogify_app.posts.routes import posts
+    from blogify_app.main.routes import main
+
+    app.register_blueprint(users)
+    app.register_blueprint(posts)
+    app.register_blueprint(main)
+
+    return app
