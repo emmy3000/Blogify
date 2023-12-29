@@ -13,17 +13,15 @@ These models are used in conjunction with Flask-SQLAlchemy to create
 and interact with the underlying database tables.
 """
 
+import json
 from dotenv import load_dotenv
 from datetime import datetime
 from itsdangerous import TimestampSigner, BadSignature, SignatureExpired
-from blogify_app import db, login_manager, app
+from flask import current_app
+from blogify_app import db, login_manager
 from flask_login import UserMixin
-import os
-import json
 
 load_dotenv()
-
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 
 @login_manager.user_loader
@@ -103,7 +101,7 @@ class User(db.Model, UserMixin):
         Returns:
             str: A signed token containing the user's ID.
         """
-        s = TimestampSigner(app.config["SECRET_KEY"])
+        s = TimestampSigner(current_app.config["SECRET_KEY"])
         signed_value = s.sign(json.dumps({"user_id": self.id}))
         return signed_value
 
@@ -126,7 +124,7 @@ class User(db.Model, UserMixin):
             BadSignature: If the token has an invalid signature
               i.e. It has been maliciously tampered with by a hacker.
         """
-        s = TimestampSigner(app.config["SECRET_KEY"])
+        s = TimestampSigner(current_app.config["SECRET_KEY"])
         try:
             unsigned_value = s.unsign(token, max_age=1800, return_timestamp=True)
             user_id = json.loads(unsigned_value[0].decode("utf-8"))["user_id"]
