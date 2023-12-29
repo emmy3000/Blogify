@@ -17,7 +17,9 @@ For configuration and detailed documentation on the application,
 refer to the 'blogify_app' package and its modules.
 """
 
-from blogify_app import app
+from blogify_app import create_app
+
+app = create_app()
 
 if __name__ == "__main__":
     app.run(debug=True)
