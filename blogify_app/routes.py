@@ -330,6 +330,38 @@ def reset_request():
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_token(token):
+    """
+    Handle user password reset using a token.
+
+    This route function processes user password reset requests using
+    a unique token. If the user is already authenticated, they are
+    redirected to the home page. The token is verified, and if valid,
+    the user is presented with a form to reset their password.
+
+    Methods:
+        - GET: Display the password reset form if the token is valid.
+        - POST: Process the submitted form, update the user's password,
+          and redirect to the login page.
+
+    Args:
+        token (str): Unique token associated with the password reset request.
+
+    Returns:
+        If the token is invalid or expired, a flash message is displayed,
+        and the user is redirected to the password reset request page.
+        If the form submission is successful, the user is redirected to
+        the login page with a flash message indicating that their password
+        has been updated.
+
+    Note:
+        - This route is accessible to non-authenticated users only.
+        - The `ResetPasswordForm` class is used for handling the password
+          reset form.
+        - The token is verified using the `verify_reset_token` method
+          of the `User` model.
+        - Upon successful form submission, the user's password is updated
+          in the database.
+    """
     if current_user.is_authenticated:
         return redirect(url_for('home'))
     user = User.verify_reset_token(token)
