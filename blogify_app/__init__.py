@@ -53,7 +53,7 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 
 # Define the view name for login redirection if user is not authenticated
-login_manager.login_view = "login"
+login_manager.login_view = "users.login"
 
 # Set the message category for login messages
 login_manager.login_message_category = "info"
