@@ -58,6 +58,8 @@ class User(db.Model, UserMixin):
 
     Attributes:
         id (int): The unique identifier for the user.
+        firstname (str): The user's firstname.
+        lastname (str): The user's lastname.
         username (str): The username of the user.
         email (str): The email address of the user.
         image_file (str): The filename of the user's profile picture.
@@ -82,6 +84,8 @@ class User(db.Model, UserMixin):
     """
 
     id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(20), unique=True, nullable=False)
+    lastname = db.Column(db.String(20), unique=True, nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default="default.jpeg")
