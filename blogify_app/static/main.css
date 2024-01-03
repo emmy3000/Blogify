@@ -103,3 +103,19 @@ a.article-title:hover {
   /* Styles for user account headings */
   font-size: 2.5rem;
 }
+
+.user_id {
+    /* Styles the username text to a subdued color */
+    color: #5f788a;
+}
+
+.author-fullname {
+    /* Displays the author's full name as an inline block without underlines */
+    display: inline-block;
+    text-decoration: none;
+}
+
+.firstname::after {
+    /* Adds a space after the first name */
+    content: " ";
+}
