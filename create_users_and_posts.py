@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 
 """
-Script to populate the database with dummy users and posts for the project's initial data.
+Script to populate the database with dummy users and posts
+for the project's initial data.
 """
 
 # Import necessary modules and models
-from blogify_app import db, app, User, Post
+from blogify_app import db, create_app, User, Post
+from blogify_app.config import Config
 
 # Ensure you're in the app context
+app = create_app(Config)
+
 with app.app_context():
     # Sanitize the database by dropping all tables and creating fresh ones
     db.drop_all()
