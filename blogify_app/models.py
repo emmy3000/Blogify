@@ -17,7 +17,7 @@ import json
 from dotenv import load_dotenv
 from datetime import datetime
 from itsdangerous import TimestampSigner, BadSignature, SignatureExpired
-from flask import current_app
+from flask import current_app, abort
 from blogify_app import db, login_manager
 from flask_login import UserMixin
 
@@ -127,18 +127,16 @@ class User(db.Model, UserMixin):
         Raises:
             SignatureExpired: If the token has expired.
             BadSignature: If the token has an invalid signature
-              i.e. It has been maliciously tampered with by a hacker.
+                i.e., it has been maliciously tampered with by a hacker.
         """
         s = TimestampSigner(current_app.config["SECRET_KEY"])
         try:
             unsigned_value = s.unsign(token, max_age=1800, return_timestamp=True)
             user_id = json.loads(unsigned_value[0].decode("utf-8"))["user_id"]
         except SignatureExpired:
-            print("Token has expired.")
-            return None
+            abort(403, "Token has expired.")
         except BadSignature:
-            print("Invalid signature.")
-            return None
+            abort(403, "Invalid signature.")
         return User.query.get(user_id)
 
     def __repr__(self):
