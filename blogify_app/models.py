@@ -98,10 +98,10 @@ class User(db.Model, UserMixin):
         Generate a time-sensitive reset token for the user.
 
         - This method creates a reset token for the user by signing a
-        JSON object containing the user's ID using a timestamped
-        signature.
+          a serialized JSON object containing the user's ID
+          using a timestamped signature.
         - The token is used for securely resetting the user's
-        password.
+          password.
 
         Returns:
             str: A signed token containing the user's ID.
@@ -113,8 +113,7 @@ class User(db.Model, UserMixin):
     @staticmethod
     def verify_reset_token(token):
         """
-        Verifies the validity of a reset token generated
-        by the 'get_reset_token' method.
+        Verifies the validity of a reset token.
 
         Args:
             token (str): The reset token to be verified.
@@ -122,12 +121,12 @@ class User(db.Model, UserMixin):
         Returns:
             User: The User object associated with the verified token
                 if the token is valid.
-            None: If the token is invalid or has expired.
 
         Raises:
             SignatureExpired: If the token has expired.
-            BadSignature: If the token has an invalid signature
-                i.e., it has been maliciously tampered with by a hacker.
+              - The method will abort with a 403 error, indicating that the token has expired.
+            BadSignature: If the token has an invalid signature, indicating malicious tampering.
+              - The method will abort with a 403 error, indicating an invalid signature.
         """
         s = TimestampSigner(current_app.config["SECRET_KEY"])
         try:
