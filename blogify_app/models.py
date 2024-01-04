@@ -53,28 +53,29 @@ class User(db.Model, UserMixin):
     """
     Class representing a user in the blog application.
 
-    - This class defines the structure of the User model in the database.
-    - Users in the blog application have the following attributes:
-
     Attributes:
         id (int): The unique identifier for the user.
-        firstname (str): The user's firstname.
-        lastname (str): The user's lastname.
-        username (str): The username of the user.
-        email (str): The email address of the user.
-        image_file (str): The filename of the user's profile picture.
-        password (str): The hashed password of the user.
+        firstname (str): The user's first name (limited to 50 characters).
+        lastname (str): The user's last name (limited to 50 characters).
+        username (str): The username of the user (limited to 25 characters,
+          must be unique).
+        email (str): The email address of the user (limited to 120 characters,
+          must be unique).
+        image_file (str): The filename of the user's profile picture
+          (limited to 120 characters, default='default.jpeg').
+        password (str): The hashed password of the user
+          (limited to 120 characters).
         posts (list): List of posts authored by the user.
 
     Note:
         - The 'id' attribute serves as the primary key in the database.
-        - 'username' must be unique and is limited to 20 characters.
+        - 'username' must be unique and is limited to 25 characters.
         - 'email' must be unique and is limited to 120 characters.
-        - 'image_file' is the filename of the user's profile picture and has
-            a default value of 'default.jpeg'.
+        - 'image_file' is the filename of the user's profile picture
+          and has a default value of 'default.jpeg'.
         - 'password' is the hashed password of the user.
         - 'posts' represents the relationship with the 'Post' model,
-            allowing access to posts authored by the user.
+          allowing access to posts authored by the user.
 
     Usage:
         - This class is used in conjunction with Flask-SQLAlchemy
@@ -84,11 +85,11 @@ class User(db.Model, UserMixin):
     """
 
     id = db.Column(db.Integer, primary_key=True)
-    firstname = db.Column(db.String(20), unique=True, nullable=False)
-    lastname = db.Column(db.String(20), unique=True, nullable=False)
-    username = db.Column(db.String(20), unique=True, nullable=False)
+    firstname = db.Column(db.String(50), nullable=False)
+    lastname = db.Column(db.String(50), nullable=False)
+    username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(20), nullable=False, default="default.jpeg")
+    image_file = db.Column(db.String(120), nullable=False, default="default.jpeg")
     password = db.Column(db.String(120), nullable=False)
     posts = db.relationship("Post", backref="author", lazy=True)
 
