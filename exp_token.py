@@ -35,7 +35,9 @@ time.sleep(random_digit)
 
 try:
     # Verify the signature and check expiration
-    unsigned_value = timestamp_signer.unsign(signed_value, max_age=5, return_timestamp=True)
+    unsigned_value = timestamp_signer.unsign(
+        signed_value, max_age=5, return_timestamp=True
+    )
 
     # Extract timestamp and data
     timestamp, value = unsigned_value[1], unsigned_value[0]
