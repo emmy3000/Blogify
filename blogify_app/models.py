@@ -31,8 +31,7 @@ def load_user(user_id):
 
     - This function is used by Flask-Login to retrieve a User object
       from the database based on the provided user ID.
-    - It is part of the user_loader
-      callback required by Flask-Login.
+    - It is part of the user_loader callback required by Flask-Login.
 
     Args:
         user_id (int): The ID of the user to load.
