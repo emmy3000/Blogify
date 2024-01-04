@@ -18,6 +18,21 @@ from blogify_app.config import Config
 
 
 def create_users():
+    """
+    Generate a list of User instances with dummy data.
+
+    - This function creates a list of User instances using dummy data,
+      including first names, last names, usernames, email addresses,
+      and passwords.
+    - The passwords are hashed using the Bcrypt algorithm before being
+      stored in the User instances.
+
+    Returns:
+        list: A list of User instances.
+
+    Usage:
+        users = create_users()
+    """
     users_data = [
         {
             "firstname": "Emeka",
@@ -109,6 +124,24 @@ def create_users():
 
 
 def create_posts(users):
+    """
+    Generate a list of Post instances with dummy data.
+
+    - This function takes a list of User instances and creates a list
+      of Post instances using dummy data for titles and content.
+    - The user_id for each post is assigned based
+      on the provided list of users.
+
+    Args:
+        users (list): A list of User instances.
+
+    Returns:
+        list: A list of Post instances.
+
+    Usage:
+        # Assuming 'users' is a list of User instances obtained from create_users()
+        posts = create_posts(users)
+    """
     posts_data = [
         {
             "title": "My First Blog Post",
@@ -301,6 +334,23 @@ def create_posts(users):
 
 
 def populate_database():
+    """
+    Populate the database with dummy users and posts.
+
+    - This function creates and initializes a fresh database by dropping existing tables
+      and creating new ones.
+    It then generates dummy users and posts, associates them, and commits the changes
+      to the database.
+
+    Note:
+        - This function assumes the existence of the Flask app context and is intended
+          to be used within the app context.
+
+    Usage:
+        # Ensure you're in the Flask app context before calling this function
+        with app.app_context():
+            populate_database()
+    """
     with app.app_context():
         # Sanitize the database by dropping all tables and creating fresh ones
         db.drop_all()
@@ -319,6 +369,8 @@ def populate_database():
 
 
 if __name__ == "__main__":
-    # Ensure you're in the app context
+    # Create a Flask app instance and initialize the database
     app = create_app(Config)
+
+    # Populate the database with dummy data
     populate_database()
