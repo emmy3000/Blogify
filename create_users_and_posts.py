@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-
 """
-Script to populate the database with dummy users and posts
-for the project's initial data.
+Populate the database with dummy users and posts
+for initial project data.
+
+- This script initializes the database by creating sample users
+  and posts, simulating initial data for the project.
+- It ensures a clean slate by dropping existing tables
+  and recreating fresh ones.
+- The use of Flask-Bcrypt enhances security by hashing user passwords
+  before storage.
+
+Author: [Emeka Emodi] <emodiemeka@gmail.com>
 """
 
 from blogify_app import db, create_app, bcrypt, User, Post
