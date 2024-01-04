@@ -95,7 +95,9 @@ class RegistrationForm(FlaskForm):
         """
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
-            raise ValidationError("That username is taken, Please choose another one")
+            raise ValidationError(
+                "That username is taken, Please choose another one"
+            )
 
     def validate_email(self, email):
         """
@@ -109,7 +111,9 @@ class RegistrationForm(FlaskForm):
         """
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError("That email is taken, Please choose another one")
+            raise ValidationError(
+                "That email is taken, Please choose another one"
+            )
 
 
 class LoginForm(FlaskForm):
@@ -169,7 +173,9 @@ class UpdateAccountForm(FlaskForm):
     username = StringField(
         "Username", validators=[DataRequired(), Length(min=2, max=20)]
     )
-    email = StringField("Email", validators=[DataRequired(), Email()])
+    email = StringField(
+        "Email", validators=[DataRequired(), Email()]
+    )
     picture = FileField(
         "Update Profile Picture", validators=[FileAllowed(["jpg", "png"])]
     )
@@ -187,7 +193,9 @@ class UpdateAccountForm(FlaskForm):
         """
         user = User.query.filter_by(username=username.data).first()
         if user is not None and username.data != current_user.username:
-            raise ValidationError("That username is taken, Please choose another one")
+            raise ValidationError(
+                "That username is taken, Please choose another one"
+            )
 
     def validate_email(self, email):
         """
@@ -201,7 +209,9 @@ class UpdateAccountForm(FlaskForm):
         """
         user = User.query.filter_by(email=email.data).first()
         if user is not None and email.data != current_user.email:
-            raise ValidationError("That email is taken, Please choose another one")
+            raise ValidationError(
+                "That email is taken, Please choose another one"
+            )
 
 
 class RequestResetForm(FlaskForm):
@@ -273,7 +283,9 @@ class ResetPasswordForm(FlaskForm):
           reset request.
     """
 
-    password = PasswordField("Password", validators=[DataRequired()])
+    password = PasswordField(
+        "Password", validators=[DataRequired()]
+    )
     confirm_password = PasswordField(
         "Confirm Password", validators=[DataRequired(), EqualTo("password")]
     )
