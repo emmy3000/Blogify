@@ -43,14 +43,14 @@ try:
     timestamp, value = unsigned_value[1], unsigned_value[0]
     current_time = timestamp_signer.get_timestamp()
 
-    # Return the value of deserialized data and message if the token is still valid.
+    # Display the deserialized data value and message if the token is still valid.
     print("Deserialized value:", json.loads(value))
     print("Time Count: Token is still valid")
 except SignatureExpired:
-    # Return a token expiration message.
+    # Display a token expiration message.
     print("Token has expired.")
 except BadSignature:
-    # Return a message if the token altered maliciously.
+    # Display a message if the token was altered maliciously.
     print("Invalid signature.")
 
 
