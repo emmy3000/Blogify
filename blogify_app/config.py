@@ -12,7 +12,7 @@ The Config class serves as a central location for managing
 configuration settings used by the Flask application to customize
 its behavior and connect to external services.
 
-Author: [Your Name]
+Author: [Emeka Emodi] <emodiemeka@gmail.com>
 """
 
 import os
