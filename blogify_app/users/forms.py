@@ -33,35 +33,51 @@ class RegistrationForm(FlaskForm):
     user registration information.
 
     Attributes:
+        firstname (StringField): Input field for the chosen first name.
+            - Validators: DataRequired (ensures a value is provided),
+              Length (ensures the length is between 2 and 50 characters).
+        lastname (StringField): Input field for the chosen last name.
+            - Validators: DataRequired (ensures a value is provided),
+              Length (ensures the length is between 2 and 50 characters).
         username (StringField): Input field for the chosen username.
             - Validators: DataRequired (ensures a value is provided),
-              Length (ensures the length is between 2 and 20 characters).
+              Length (ensures the length is between 2 and 50 characters).
         email (StringField): Input field for the user's email address.
             - Validators: DataRequired (ensures a value is provided),
               Email (validates that the input is a valid email address).
         password (PasswordField): Input field for the chosen password.
-            - Validators: DataRequired (ensures a value is provided).
-        confirm_password (PasswordField): Input field to confirm the chosen
-          password.
             - Validators: DataRequired (ensures a value is provided),
-              EqualTo('password') (validates that it matches the chosen
-              password).
+              Length (ensures the length is at least 6 characters).
+        confirm_password (PasswordField): Input field to confirm the chosen password.
+            - Validators: DataRequired (ensures a value is provided),
+              EqualTo('password') (validates that it matches the chosen password).
         submit (SubmitField): Button to submit the registration form.
 
     Validators:
-        - `username`: Enforces that the username is required
-          and within a length range of 2 to 20 characters.
-        - `email`: Enforces that a valid email address is provided.
-        - `password`: Enforces that a password is required.
-        - `confirm_password`: Enforces that the confirmation password
+        - `username`: Ensures that the username is required
+          and within a length range of 2 to 50 characters.
+        - `email`: Validates that a valid email address is provided.
+        - `password`: Ensures that a password is required
+          and at least 6 characters long.
+        - `confirm_password`: Ensures that the confirmation password
           is required and matches the chosen password.
     """
 
-    username = StringField(
-        "Username", validators=[DataRequired(), Length(min=2, max=20)]
+    firstname = StringField(
+        "First Name", validators=[DataRequired(), Length(min=2, max=50)]
     )
-    email = StringField("Email", validators=[DataRequired(), Email()])
-    password = PasswordField("Password", validators=[DataRequired()])
+    lastname = StringField(
+        "Last Name", validators=[DataRequired(), Length(min=2, max=50)]
+    )
+    username = StringField(
+        "Username", validators=[DataRequired(), Length(min=2, max=50)]
+    )
+    email = StringField(
+        "Email", validators=[DataRequired(), Email()]
+    )
+    password = PasswordField(
+        "Password", validators=[DataRequired(), Length(min=6)]
+    )
     confirm_password = PasswordField(
         "Confirm Password", validators=[DataRequired(), EqualTo("password")]
     )
