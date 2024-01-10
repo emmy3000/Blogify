@@ -211,9 +211,22 @@ git clone https://github.com/emmy3000/Blogify.git
 - Verify Database Initialization:
 
     Check your instance directory for the SQLite database file (usually named `site.db`). If it's present, the database setup is successful.
-    ```shell
+    ```sqlite
+    -- Establish a connection to the specified database file.
     sqlite3 instance/site.db
-    ```
+  
+    -- Show tables
+    .tables
+
+   -- Describe a specific table (replace 'table_name' with the actual table name)
+   .schema table_name
+
+   -- Execute SQL queries
+   SELECT * FROM table_name;
+  
+   -- exit the SQLite shell
+   .quit
+   ```
 
 - Install dependencies needed for the project.
 
