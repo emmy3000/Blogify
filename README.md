@@ -106,6 +106,8 @@ This section outlines the purpose of key directories and files within the projec
 
 To set up the project locally, follow these steps:
 
-```shell
+- Clone the project repository.
 
+```shell
+git clone https://github.com/emmy3000/Blogify.git
 ```
