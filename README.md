@@ -211,7 +211,7 @@ git clone https://github.com/emmy3000/Blogify.git
 - Verify Database Initialization:
 
     Check your instance directory for the SQLite database file (usually named `site.db`). If it's present, the database setup is successful.
-    ```sqlite
+    ```sql
     -- Establish a connection to the specified database file.
     sqlite3 instance/site.db
   
