@@ -52,7 +52,6 @@
           <!-- Navbar Content -->
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
               <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
             </div>
             <!-- Navbar Right Side (Login/Register or Account/Logout) -->
@@ -72,43 +71,56 @@
     </header>
 
     <!-- Main Content -->
-    <main role="main" class="container">
-      <div class="row">
+    <main role="main" class="container d-flex justify-content-center">
         <!-- Main Content Area -->
-        <div class="col-md-8">
-          <!-- Flash Messages -->
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-          <!-- Content Block (to be filled by child templates) -->
-          {% block content %}{% endblock %}
-        </div>
-
-        <!-- Sidebar -->
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.</p>
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
-              </ul>
-          </div>
-        </div>
-      </div>
+            <div class="col-md-8">
+              <!-- Flash Messages -->
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                      {{ message }}
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+              <!-- Content Block (to be filled by child templates) -->
+              {% block content %}{% endblock %}
+            </div>
     </main>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer mt-5 py-3 text-white border-highlight">
-        <div class="container text-center">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Explore Section -->
+            <div class="explore-section">
+                <h5 class="mb-3 text-white">Explore</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#review" class="text-white text-decoration-none">Review</a></li>
+                    <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    <li><a href="#faq" class="text-white text-decoration-none">FAQ</a></li>
+                </ul>
+            </div>
+            <!-- Newsletter Section with Search Bar -->
+            <div class="newsletter-section">
+                <h5 class="mb-3 text-white">Newsletter</h5>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Enter your email" aria-label="Search">
+                    <button class="btn btn-light ml-2" type="submit">Subscribe</button>
+                </form>
+            </div>
+            <!-- Social Media Icons Section -->
+            <div class="social-icons">
+                <h5 class="mb-3 text-white">Follow Us</h5>
+                <div>
+                    <a href="#" class="text-white text-decoration-none me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white text-decoration-none me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white text-decoration-none me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white text-decoration-none me-3"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center">
             <span class="me-2 text-decoration-none">
                 &copy; 2024 Blogify
             </span>
