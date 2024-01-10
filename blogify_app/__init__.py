@@ -94,9 +94,11 @@ def create_app(config_class=Config):
     from blogify_app.users.routes import users
     from blogify_app.posts.routes import posts
     from blogify_app.main.routes import main
+    from blogify_app.landing_bp.routes import landing_bp
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
+    app.register_blueprint(landing_bp)
 
     return app
