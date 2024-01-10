@@ -59,10 +59,10 @@ def create_app(config_class=Config):
     Factory function to create the Blogify Flask application.
 
     This function initializes and configures the Flask application,
-    along with associated extensions (Flask-SQLAlchemy, Flask-Bcrypt,
-    Flask-Login, Flask-Mail). It registers blueprints for different
-    application components (users, posts, main) to organize routes
-    and views.
+    along with associated extensions such as Flask-SQLAlchemy, Flask-Bcrypt,
+    Flask-Login, and Flask-Mail. It registers blueprints for different
+    application components (users, posts, main, landing_bp, and errors)
+    to organize routes and views.
 
     Args:
         config_class (class, optional): The configuration class to use.
@@ -72,16 +72,16 @@ def create_app(config_class=Config):
         Flask: The configured Flask application instance.
 
     Usage:
-        app = create_app()
-        app.run()
+        - app = create_app()
+        - app.run()
 
-    Note:
+    Notes:
         - The configuration parameters are set using the provided
           config_class or the default Config class.
         - The database, password hashing, login management, and email
           handling are initialized and associated with the app.
         - Blueprints are registered to organize routes for different
-          components of the application.
+          components of the application (users, posts, main, landing_bp, and errors).
     """
     app = Flask(__name__)
     app.config.from_object(config_class)
@@ -95,10 +95,12 @@ def create_app(config_class=Config):
     from blogify_app.posts.routes import posts
     from blogify_app.main.routes import main
     from blogify_app.landing_bp.routes import landing_bp
+    from blogify_app.errors.handlers import errors
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
     app.register_blueprint(landing_bp)
+    app.register_blueprint(errors)
 
     return app
