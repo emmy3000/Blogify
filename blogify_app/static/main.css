@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-steel {
   /* Background color for specific elements */
-  background-color: #5f788a;
+  background-color: #007BFF;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -39,13 +39,47 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+.custom-card-body {
+    height: 200px; /* Adjust the height as needed */
+    box-shadow: 5px 5px 10px rgba(0.1, 0.0, 0, 0.1); /* Adjust values as needed */
+    transition: box-shadow 0.3s ease, transform 0.5s ease; /* Add transition effect for box-shadow and transform */
+}
+
+.card-section:hover .card {
+    box-shadow: 8px 8px 15px rgba(0.2, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.key-feature-image {
+    width: 100%; /* Ensure the width is 100% of the parent container */
+    height: 100%; /* Ensure the height is 100% of the parent container */
+    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+}
+
+/* Add this to your existing CSS or main.css file */
+.testimonial-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center; /* Center text within the container */
+}
+
+.testimonial-image {
+    width: 100px; /* Adjust the width as needed */
+    margin-bottom: 10px; /* Adjust the margin as needed */
+}
+
+.testimonial-image img {
+    width: 100%;
+    border-radius: 100%;
+}
+
 .content-section {
   /* Styles for content sections */
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
 }
 
 .article-title {
@@ -118,4 +152,10 @@ a.article-title:hover {
 .firstname::after {
     /* Adds a space after the first name */
     content: " ";
+}
+
+
+footer {
+  /* Text color for the footer section */
+  background: #007BFF;
 }
