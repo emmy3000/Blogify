@@ -39,10 +39,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+/*
 .feature-image {
-    height: 300px; /* Adjust the height as needed */
-    object-fit: cover; /* This property controls how the image is resized within its container */
+    height: 300px;
+    object-fit: cover;
 }
+*/
 
 .testimonial-content {
     flex: 1;
