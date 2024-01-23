@@ -17,7 +17,7 @@ Author: [Emeka Emodi] <emodiemeka@gmail.com>
 
 import json
 
-# Read environment variables from the /etc/config.json file
+# Load configuration from the JSON file containing environment variables.
 with open("/etc/config.json") as config_file:
     config = json.load(config_file)
 
