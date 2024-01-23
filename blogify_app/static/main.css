@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-image {
-    height: 300px; /* Adjust the height as needed */
+    height: 200px; /* Adjust the height as needed */
     object-fit: cover; /* This property controls how the image is resized within its container */
     width: 100%; /* Ensure the image takes up the full width of its container */
 }
