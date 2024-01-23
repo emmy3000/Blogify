@@ -39,24 +39,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-/*
-.custom-card-body {
-    height: 200px;
-    box-shadow: 5px 5px 10px rgba(0.1, 0.0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.5s ease;
+.feature-image {
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover; /* This property controls how the image is resized within its container */
 }
-
-.card-section:hover .card {
-    box-shadow: 8px 8px 15px rgba(0.2, 0, 0, 0.2);
-    transform: scale(1.05);
-}
-
-.key-feature-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-*/
 
 .testimonial-content {
     flex: 1;
