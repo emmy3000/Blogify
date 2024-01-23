@@ -39,10 +39,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+/*
 .custom-card-body {
-    height: 200px; /* Adjust the height as needed */
-    box-shadow: 5px 5px 10px rgba(0.1, 0.0, 0, 0.1); /* Adjust values as needed */
-    transition: box-shadow 0.3s ease, transform 0.5s ease; /* Add transition effect for box-shadow and transform */
+    height: 200px;
+    box-shadow: 5px 5px 10px rgba(0.1, 0.0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.5s ease;
 }
 
 .card-section:hover .card {
@@ -51,12 +52,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .key-feature-image {
-    width: 100%; /* Ensure the width is 100% of the parent container */
-    height: 100%; /* Ensure the height is 100% of the parent container */
-    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+*/
 
-/* Add this to your existing CSS or main.css file */
 .testimonial-content {
     flex: 1;
     padding: 20px;

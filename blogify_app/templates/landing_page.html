@@ -76,52 +76,58 @@
             <!-- Feature Section -->
             <section class="py-5">
                 <div class="container text-center">
-                    <h2 class="display-5 fw-bold mb-4">Key Features</h2>
 
-                    <div class="row">
-                        <!-- Feature 1 - User Accounts -->
-                        <div class="card-section col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="{{ url_for('static', filename='img/user_accounts_image.jpg') }}" alt="User Accounts"
-                                     class="card-img-top key-feature-image img-fluid">
-                                <div class="card-body custom-card-body">
-                                    <h4 class="card-title">User Accounts</h4>
-                                    <p class="card-text">Register and manage your own account.</p>
-                                    <a class="btn btn-primary btn-lg" href="{{ url_for('users.register') }}">Register
-                                    </a>
-                                </div>
+                    <!-- Feature 1 - User Accounts -->
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-4">
+                            <img src="{{ url_for('static', filename='img/user_accounts_image.jpg') }}" alt="User Accounts"
+                                 class="key-feature-image img-fluid mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="steps__content-width">
+                                <span>01</span>
+                                <h4 class="fw-bold">User Accounts</h4>
+                                <p>Register and manage your own account.</p>
+                                <a class="btn btn-primary btn-lg" href="{{ url_for('users.register') }}">Register</a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Feature 2 - Write and Publish -->
-                        <div class="card-section col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="{{ url_for('static', filename='img/write_publish_image.jpg') }}" alt="Write and Publish"
-                                     class="card-img-top key-feature-image img-fluid">
-                                <div class="card-body custom-card-body">
-                                    <h4 class="card-title">Write and Publish</h4>
-                                    <p class="card-text">Create and share your thoughts with the world.</p>
-                                    <a class="btn btn-primary btn-lg" href="{{ url_for('users.login') }}">Login</a>
-                                </div>
+                    <!-- Feature 2 - Write and Publish -->
+                    <div class="row mb-4">
+                        <div class="col-md-6 order-md-1 mb-4">
+                            <img src="{{ url_for('static', filename='img/write_publish_image.jpg') }}" alt="Write and Publish"
+                                 class="key-feature-image img-fluid mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="steps__content-width">
+                                <span>02</span>
+                                <h4 class="fw-bold">Write and Publish</h4>
+                                <p>Create and share your thoughts with the world.</p>
+                                <a class="btn btn-primary btn-lg" href="{{ url_for('users.login') }}">Login</a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Feature 3 - Engage with Community -->
-                        <div class="card-section col-md-4 mb-4">
-                            <div class="card h-100">
-                                <img src="{{ url_for('static', filename='img/engage_community_image.jpg') }}" alt="Engage with Community"
-                                     class="card-img-top key-feature-image img-fluid">
-                                <div class="card-body custom-card-body">
-                                    <h4 class="card-title">Engage with Community</h4>
-                                    <p class="card-text">Connect with other bloggers and readers.</p>
-                                    <a class="btn btn-primary btn-lg" href="{{ url_for('main.home') }}">View Posts</a>
-                                </div>
+                    <!-- Feature 3 - Engage with Community -->
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-4">
+                            <img src="{{ url_for('static', filename='img/engage_community_image.jpg') }}" alt="Engage with Community"
+                                 class="key-feature-image img-fluid mb-3">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="steps__content-width">
+                                <span>03</span>
+                                <h4 class="fw-bold">Engage with Community</h4>
+                                <p>Connect with other bloggers and readers.</p>
+                                <a class="btn btn-primary btn-lg" href="{{ url_for('main.home') }}">View Posts</a>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </section>
+
 
             <!-- Explore Section -->
             <section class="py-4 bg-primary rounded text-white text-center">
