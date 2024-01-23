@@ -39,15 +39,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-.feature-image-container {
-    height: 300px;
-    width: 100%;
-    background-color: red; /* Add a background color for debugging */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
 .testimonial-content {
     flex: 1;
     padding: 20px;
