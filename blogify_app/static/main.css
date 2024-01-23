@@ -40,14 +40,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-image-container {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 240;
     object-fit: cover;
-    object-position: 80% 100%;
-    /*display: inline-block;  Added this property */
+    margin: 0 auto;
+}
+
+.steps__content-width {
+  max-width: 456px;
+  margin: 0 auto;
 }
 
 .testimonial-content {
