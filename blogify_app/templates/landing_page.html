@@ -98,54 +98,67 @@
             </section>
             <!-- Hero section end-->
 
+            <a id="scroll-down"></a>
            <!-- Feature Section -->
-            <section class="py-5">
-                <div class="container text-center">
+            <section class="steps container-custom">
 
                     <!-- Feature 1 - User Accounts -->
                     <div class="row">
-                        <div class="col-12 col-sm-6 d-md-flex justify-content-md-ceneter">
+                        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
                             <img src="{{ url_for('static', filename='img/user_accounts_image.jpg') }}"
                                  alt="User Accounts" width="553" height="746"
-                                 class="img-fluid pb-4 feature-image-container"
+                                 class="img-fluid pb-4 steps__section-thumbnail"
                                  loading="lazy"
                             >
                         </div>
 
-                        <div class="col-12 col-sm-6 align-self-center justify-content-md-ceneter">
+                        <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+
                             <div class="steps__content-width">
-                                <h4 class="fw-bold mb-4">User Accounts</h4>
-                                <p>Register and manage your own account.</p>
-                                <a class="btn btn-primary btn-lg" href="{{ url_for('users.register') }}">Register</a>
+                                <h1 class="h2 mb-4">User Accounts</h1>
+                                <p class="mb-4">Register and manage your own account.</p>
+                                <a href="{{ url_for('users.register') }}"
+                                   class="hero__btn mt-2 btn btn-lg btn-outline-light" role="button">Register</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Feature 2 - Write and Publish -->
-                    <div class="row">
-                        <div class="col-12 col-sm-6 d-md-flex justify-content-md-ceneter order-sm-1">
-                            <img src="{{ url_for('static', filename='img/write_publish_image.jpg') }}"
-                                 alt="Write and Publish" width="553" height="746"
-                                 class="img-fluid pb-4 feature-image-container"
-                                 loading="lazy"
-                            >
-                        </div>
+            </section>
 
-                        <div class="col-12 col-sm-6 align-self-center justify-content-md-ceneter">
-                            <div class="steps__content-width">
-                                <h4 class="fw-bold mb-4">Write and Publish</h4>
-                                <p>Create and share your thoughts with the world.</p>
-                                <a class="btn btn-primary btn-lg" href="{{ url_for('users.login') }}">Login</a>
+            <section class="steps steps--background">
+                <!-- Feature 2 - Write and Publish -->
+                    <div class="container-custom">
+
+                        <div class="row">
+                            <div class="col-12 col-sm-6 d-md-flex justify-content-md-center order-sm-1">
+                                <img src="{{ url_for('static', filename='img/write_publish_image.jpg') }}"
+                                     alt="Write and Publish" width="553" height="746"
+                                     class="img-fluid pb-4 steps__section-thumbnail"
+                                     loading="lazy"
+                                >
+                            </div>
+
+                            <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+                                <div class="steps__content-width">
+                                    <h1 class="h2 mb-4">Write and Publish</h1>
+                                    <p class="mb-4">Create and share your thoughts with the world.</p>
+                                    <a href="{{ url_for('users.login') }}"
+                                       class="hero__btn mt-2 btn btn-lg btn-outline-light" role="button">Login</a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Feature 3 - Engage with Community -->
+            </section>
+
+            <section class="steps container-custom">
+                <!-- Feature 3 - Engage with Community -->
+
                     <div class="row">
-                        <div class="col-12 col-sm-6 d-md-flex justify-content-md-ceneter">
+                        <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
                             <img src="{{ url_for('static', filename='img/engage_community_image.jpg') }}"
-                                 alt="Engage with Community" width="553" height="746" 
-                                 class="img-fluid pb-4 feature-image-container"
+                                 alt="Engage with Community" width="553" height="746"
+                                 class="img-fluid pb-4 steps__section-thumbnail"
                                  loading="lazy"
                             >
                         </div>
@@ -154,12 +167,11 @@
                             <div class="steps__content-width">
                                 <h4 class="fw-bold mb-4">Engage with Community</h4>
                                 <p>Connect with other bloggers and readers.</p>
-                                <a class="btn btn-primary btn-lg" href="{{ url_for('main.home') }}">View Posts</a>
+                                <a href="{{ url_for('main.home') }}"
+                                   class="hero__btn mt-2 btn btn-lg btn-outline-light" role="button">View Posts</a>
                             </div>
                         </div>
                     </div>
-
-                </div>
             </section>
 
             <!-- Explore Section -->
