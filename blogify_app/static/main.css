@@ -52,7 +52,7 @@ a:hover { color: var(--primary-color); }
 
 h1, h2, h3, h4, h5, h6 {
   /* Text color for heading elements */
-  color: #44444;
+  color: #333333;
   /*color: #FFEC00;*/
 }
 
