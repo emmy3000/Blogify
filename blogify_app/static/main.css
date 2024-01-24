@@ -18,6 +18,14 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+  /* Background color and text color for the entire page */
+  background: var(--bs-body-bg);
+  /*color: #333333;*/
+  margin-top: 3.4rem;
+  overflow-x: hidden;
+}
+
 a { color: var(--primary-color); }
 a:hover { color: var(--primary-color); }
 
@@ -40,14 +48,6 @@ a:hover { color: var(--primary-color); }
 
 @media (min-width: 1600px) {
   .container-custom { width: 1520px; }
-}
-
-body {
-  /* Background color and text color for the entire page */
-  background: var(--bs-body-bg);
-  color: #333333;
-  margin-top: 3.4rem;
-  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__content-width {
-  max-width: 740px;
+  max-width: 750px;
 }
 
 .feature-image-container {
