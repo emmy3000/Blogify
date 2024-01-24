@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 50vh;
+    height: 60vh;
     background-color: var(--primary-color);
 }
 
