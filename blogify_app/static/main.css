@@ -113,8 +113,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero__scroll-btn {
   position: absolute;
-  left: 80%;
-  bottom: 30px;
+  left: 50%;
+  bottom: 60px;
   transform: translateX(-50%);
   z-index: 1;
   color: var(--bs-light);
