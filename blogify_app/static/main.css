@@ -7,13 +7,23 @@
   Note: Adjustments to these styles may impact the overall look and feel of the application.
 */
 
+:root {
+  --primary-color: #320032;
+  --primary-color-highlight: #233D54;
+  --bs-body-bg: #F6FBF0;
+  --bs-body-font-family: 'Montserrat', sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
+a { color: var(--primary-color); }
+a:hover { color: var(--primary-color); }
+
 body {
   /* Background color and text color for the entire page */
-  background: #fafafa;
+  background: var(--bs-body-bg);
   color: #333333;
   margin-top: 5rem;
 }
@@ -25,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-steel {
   /* Background color for specific elements */
-  background-color: #007BFF;
+  background-color: #7F007F;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -41,6 +51,12 @@ h1, h2, h3, h4, h5, h6 {
 .site-header .navbar-nav .nav-link.active {
   /* Style for active navigation link */
   font-weight: 500;
+}
+
+.hero {
+  position: relative;
+  height: 30vh;
+  background-color: var(--primary-color);
 }
 
 .feature-image-container {
@@ -154,5 +170,5 @@ a.article-title:hover {
 
 footer {
   /* Text color for the footer section */
-  background: #007BFF;
+  background: #7F007F;
 }
