@@ -104,6 +104,11 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 750px;
 }
 
+.hero__btn:hover {
+    background-color: #FFEC00;
+    color: #320032;
+}
+
 .feature-image-container {
     height: 240px;
     object-fit: cover;
