@@ -164,7 +164,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .steps--background {
-  background-color: var(--primary-color-highlight);
+  background-color: #ff6dff;
 }
 
 @media (min-width: 544px) {
