@@ -7,6 +7,10 @@
   Note: Adjustments to these styles may impact the overall look and feel of the application.
 */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
   /* Background color and text color for the entire page */
   background: #fafafa;
