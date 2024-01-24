@@ -77,19 +77,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero {
-  position: relative;
-  height: 50vh;
-  background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 50vh;
+    background-color: var(--primary-color);
+}
+
+.hero__content {
+    text-align: center;
 }
 
 @media (min-width: 1400px) {
-  .hero__heading {
-      font-size: 3.2rem;
-  }
+    .hero__heading {
+        font-size: 3.2rem;
+    }
 }
 
 .hero__content-width {
-  max-width: 750px;
+    max-width: 750px;
 }
 
 .feature-image-container {
