@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero {
   position: relative;
-  height: 60vh;
+  height: 50vh;
   background-color: var(--primary-color);
 }
 
@@ -86,10 +86,6 @@ h1, h2, h3, h4, h5, h6 {
   .hero__heading {
       font-size: 3.2rem;
   }
-}
-
-.hero__content {
-  z-index: 1;
 }
 
 .hero__content-width {
