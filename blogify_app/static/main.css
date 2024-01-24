@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero {
   position: relative;
-  height: 30vh;
+  height: 80vh;
   background-color: var(--primary-color);
 }
 
