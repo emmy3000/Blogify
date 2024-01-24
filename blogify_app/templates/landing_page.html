@@ -28,16 +28,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
-        <style>
-          .feature-image-container {
-              height: 300px;
-              width: 100%;
-              background-size: cover;
-              background-position: center center;
-              background-repeat: no-repeat;
-          }
-        </style>
-
         <!-- Dynamic Title -->
         {% if title %}
         <title>Blogify - {{ title }}</title>
@@ -99,10 +89,9 @@
             <!-- Hero section end-->
 
             <a id="scroll-down"></a>
-           <!-- Feature Section -->
+           <!-- Feature 1 - User Accounts -->
             <section class="steps container-custom">
 
-                    <!-- Feature 1 - User Accounts -->
                     <div class="row">
                         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
                             <img src="{{ url_for('static', filename='img/user_accounts_image.jpg') }}"
@@ -125,8 +114,9 @@
 
             </section>
 
+            <!-- Feature 2 - Write and Publish -->
             <section class="steps steps--background">
-                <!-- Feature 2 - Write and Publish -->
+
                     <div class="container-custom">
 
                         <div class="row">
@@ -151,8 +141,8 @@
 
             </section>
 
+             <!-- Feature 3 - Engage with Community -->
             <section class="steps container-custom">
-                <!-- Feature 3 - Engage with Community -->
 
                     <div class="row">
                         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
