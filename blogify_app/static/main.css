@@ -89,8 +89,13 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.hero__heading {
+    color: #FFEC00;
+}
+
 @media (min-width: 1400px) {
     .hero__heading {
+        color: #FFEC00;
         font-size: 3.2rem;
     }
 }
