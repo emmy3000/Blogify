@@ -147,12 +147,13 @@ h1, h2, h3, h4, h5, h6 {
 * Steps Section
 */
 .steps {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .steps__section-thumbnail {
   height: 240px;
+  width: 100%;
   object-fit: cover;
   margin: 0 auto;
 }
@@ -163,13 +164,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .steps--background {
-  background-color: #FEF8F9;
+  background-color: var(--primary-color-highlight);
 }
 
 @media (min-width: 544px) {
   .steps {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .steps__section-thumbnail {
