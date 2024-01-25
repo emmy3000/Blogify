@@ -296,6 +296,7 @@ footer {
 
 /* Apply styles for Explore section links */
 .footer-explore-section a,
+.footer-explore-section .border-highlight,
 .footer-explore-section a:visited {
     color: #FFEC00; /* Set default color */
 }
