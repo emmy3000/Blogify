@@ -277,6 +277,11 @@ a.article-title:hover {
     color: #320032;
 }
 
+.post_icon {
+    /* Styles the username post number icon */
+    color: #320032;
+}
+
 .author-fullname {
     /* Displays the author's full name as an inline block without underlines */
     display: inline-block;
