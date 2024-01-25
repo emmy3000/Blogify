@@ -27,7 +27,10 @@ body {
 }
 
 a { color: var(--primary-color); }
-a:hover { color: var(--primary-color); }
+a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
 
 /*
 * Custom Container
@@ -49,6 +52,10 @@ a:hover { color: var(--primary-color); }
 @media (min-width: 1600px) {
   .container-custom { width: 1520px; }
 }
+
+.navbartoggle-icon-color {
+    color: #FF9700;
+  }
 
 h1, h2, h3, h4, h5, h6 {
   /* Text color for heading elements */
@@ -81,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 70vh;
+    height: 50vh;
     background-color: var(--primary-color);
 }
 
@@ -111,38 +118,6 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 }
 
-.hero__scroll-btn {
-  position: absolute;
-  left: 50%;
-  bottom: -3px;
-  transform: translateX(-50%);
-  z-index: 1;
-  color: var(--bs-light);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-}
-
-.hero__scroll-btn:hover {
-  color: var(--bs-light);
-  opacity: 0.8;
-}
-
-.hero__scroll-btn .bi {
-  transition-delay: 0.8s;
-  animation: bounce 1s infinite alternate;
-}
-
-@keyframes bounce {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-10px);
-  }
-}
-
 /*
 * Steps Section
 */
@@ -163,8 +138,15 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
-.steps--background {
-  background-color: #ff6dff;
+.features_btn {
+    color: var(--primary-color);
+}
+
+.features_btn:hover {
+    background-color: #320032;
+    color: #FFEC00;
+    font-weight: 500;
+    border: none;
 }
 
 @media (min-width: 544px) {

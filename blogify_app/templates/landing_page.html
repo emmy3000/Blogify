@@ -51,7 +51,7 @@
                             aria-expanded="false"
                             aria-label="Toggle navigation"
                     >
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon navbartoggle-icon-color"></span>
                     </button>
                     <!-- Navbar Content -->
                     <div class="collapse navbar-collapse" id="navbarToggle">
@@ -82,15 +82,13 @@
                     </div>
                 </div>
 
-                <a href="#scroll-down" class="hero__scroll-btn">
-                  Explore <i class="bi bi-arrow-down-short"></i>
-                </a>
             </section>
             <!-- Hero section end-->
 
-            <a id="scroll-down"></a>
            <!-- Feature 1 - User Accounts -->
-            <section class="steps container-custom" style="background-color: #ff94ff;">
+            <section class="steps" style="background-color: #fdff00;">
+
+                <div class="container-custom">
 
                     <div class="row">
                         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
@@ -108,15 +106,17 @@
                                 <h1 class="h2 mb-4">User Accounts</h1>
                                 <p class="mb-4">Register and manage your own account.</p>
                                 <a href="{{ url_for('users.register') }}"
-                                   class="hero__btn mt-2 btn btn-lg btn-outline-light" role="button">Register</a>
+                                   class="features_btn mt-2 btn btn-lg btn-outline-light" role="button">Register
+                                </a>
                             </div>
                         </div>
                     </div>
+                </div>
 
             </section>
 
             <!-- Feature 2 - Write and Publish -->
-            <section class="steps steps--background">
+            <section class="steps" style="background-color: #e7ff00">
 
                     <div class="container-custom">
 
@@ -135,7 +135,7 @@
                                     <h1 class="h2 mb-4">Write and Publish</h1>
                                     <p class="mb-4">Create and share your thoughts with the world.</p>
                                     <a href="{{ url_for('users.login') }}"
-                                       class="hero__btn mt-2 btn btn-lg btn-outline-light" role="button">Login</a>
+                                       class="features_btn mt-2 btn btn-lg btn-outline-light" role="button">Login</a>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,9 @@
             </section>
 
              <!-- Feature 3 - Engage with Community -->
-            <section class="steps container-custom" style="background-color: #ff94ff;">
+            <section class="steps" style="background-color: #fdff00;">
+
+                <div class="container-custom">
 
                     <div class="row">
                         <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
@@ -161,10 +163,12 @@
                                 <h4 class="h2 mb-4">Engage with Community</h4>
                                 <p>Connect with other bloggers and readers.</p>
                                 <a href="{{ url_for('main.home') }}"
-                                   class="hero__btn mt-2 btn btn-lg btn-outline-light" role="button">View Posts</a>
+                                   class="features_btn mt-2 btn btn-lg btn-outline-light" role="button">View Posts</a>
                             </div>
                         </div>
                     </div>
+                </div>
+
             </section>
 
             <!-- Explore Section -->
