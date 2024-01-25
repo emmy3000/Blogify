@@ -26,11 +26,11 @@ body {
   overflow-x: hidden;
 }
 
-a { color: var(--primary-color); }
-a:hover {
+a {
     color: var(--primary-color);
     text-decoration: none;
 }
+a:hover {color: var(--primary-color);}
 
 /*
 * Custom Container
