@@ -311,6 +311,13 @@ footer {
     color: #FFEC00; /* Set default color */
 }
 
+.newsletter__btn:hover {
+    background-color: #FFEC00;
+    color: #320032;
+    font-weight: 500;
+    border: none;
+}
+
 .footer-explore-section .social-media a:hover {
     color: #FF9700; /* Set hover color */
 }
