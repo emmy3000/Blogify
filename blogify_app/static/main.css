@@ -282,7 +282,8 @@ a.article-title:hover {
     background-color: #320032;
     /*padding-left: 10px;*/
     color: #ffffff;
-    font-size: 10px;
+    padding:20px;
+    font-size: 20px;
 }
 
 .author-fullname {
