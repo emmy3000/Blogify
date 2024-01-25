@@ -293,3 +293,21 @@ footer {
   /* Text color for the footer section */
   background: #7F007F;
 }
+
+/* Apply styles for Explore section links */
+.footer-explore-section a {
+    color: #FFEC00; /* Set default color */
+}
+
+.footer-explore-section a:hover {
+    color: #FF9700; /* Set hover color */
+}
+
+/* Apply styles for Social Media links */
+.social-media a {
+    color: #FFEC00; /* Set default color */
+}
+
+.social-media a:hover {
+    color: #FF9700; /* Set hover color */
+}
