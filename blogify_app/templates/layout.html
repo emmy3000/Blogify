@@ -94,14 +94,14 @@
         </main>
 
         <!-- Footer -->
-        <footer class="py-5">
+        <footer class="pt-5 text-white">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
                     <!-- Explore section -->
-                    <h5>Explore</h5>
+                    <h5 class="text-white">Explore</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="{{ url_for('main.home') }}" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="{{ url_for('main.about') }}" class="nav-link p-0 text-muted">About</a></li>
                         <li class="nav-item mb-2"><a href="#review" class="nav-link p-0 text-muted">Review</a></li>
                         <li class="nav-item mb-2"><a href="#contact" class="nav-link p-0 text-muted">Contact</a></li>
                         <li class="nav-item mb-2"><a href="#faq" class="nav-link p-0 text-muted">FAQ</a></li>
@@ -119,7 +119,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top border-highlight">
                     <!-- Copyright section -->
                     <i class="bi bi-cup"></i>
                     <p>© 2022 Blogify, Inc. All rights reserved.</p>
