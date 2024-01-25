@@ -140,6 +140,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .features_btn {
     color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .features_btn:hover {
