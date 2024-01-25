@@ -14,7 +14,7 @@ Author: [Emeka Emodi] <emodiemeka@gmail.com>
 """
 
 from blogify_app import db, create_app, bcrypt, User, Post
-from blogify_app.config import Config
+from blogify_app.config_production import Config
 
 
 def create_users():
