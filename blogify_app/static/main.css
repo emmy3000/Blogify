@@ -280,6 +280,8 @@ a.article-title:hover {
 .post_icon {
     /* Styles the username post number icon */
     background-color: #FF9700;
+    /*padding-left: 10px;*/
+    font-size: 20px;
 }
 
 .author-fullname {
