@@ -98,7 +98,7 @@
             <div class="row">
 
                 <!-- Explore section -->
-                <div class="col-6 col-md-2 mb-3 explore-section">
+                <div class="col-6 col-md-2 mb-3">
                     <h5 class="text-white mb-3">Explore</h5>
                     <ul class="nav flex-column text-white">
                         <li class="nav-item mb-2"><a href="{{ url_for('main.home') }}" class="nav-link p-0 text-muted">Home</a></li>
@@ -110,7 +110,7 @@
                 </div>
 
                 <!-- Newsletter section -->
-                <div class="col-md-5 offset-md-1 mb-3 newsletter-section">
+                <div class="col-md-5 offset-md-1 mb-3">
                     <form action="">
                         <h5>Subscribe to our newsletter</h5>
                         <p>Monthly digest of what's new and exciting from us.</p>
@@ -122,10 +122,11 @@
                     </form>
                 </div>
 
-                <div class="col-12"><!-- Added full-width column to separate sections --></div>
+                <!-- Separate the sections -->
+                <div class="col-12 mb-3"></div>
 
+                <!-- Copyright and Social Media section -->
                 <div class="col-12 d-flex justify-content-between py-2 border-top text-white border-highlight">
-
                     <!-- Copyright section -->
                     <i class="bi bi-cup"></i>
                     <p>© 2022 Blogify, Inc. All rights reserved.</p>
@@ -151,7 +152,7 @@
                 </div>
             </div>
         </footer>
-
+        
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
