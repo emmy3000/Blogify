@@ -295,7 +295,8 @@ footer {
 }
 
 /* Apply styles for Explore section links */
-.footer-explore-section a {
+.footer-explore-section a,
+.footer-explore-section a:visited {
     color: #FFEC00; /* Set default color */
 }
 
@@ -304,10 +305,11 @@ footer {
 }
 
 /* Apply styles for Social Media links */
-.social-media a {
+.footer-explore-section .social-media a,
+.footer-explore-section .social-media a:visited {
     color: #FFEC00; /* Set default color */
 }
 
-.social-media a:hover {
+.footer-explore-section .social-media a:hover {
     color: #FF9700; /* Set hover color */
 }
