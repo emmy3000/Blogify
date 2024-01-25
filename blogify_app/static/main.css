@@ -274,12 +274,12 @@ a.article-title:hover {
 
 .user_id {
     /* Styles the username text to a subdued color */
-    color: #320032;
+    color: #ffffff;
 }
 
 .post_icon {
     /* Styles the username post number icon */
-    color: #320032;
+    background-color: #320032;
 }
 
 .author-fullname {
