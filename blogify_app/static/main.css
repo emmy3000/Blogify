@@ -161,10 +161,38 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/*
+* Explore Section
+*/
+.explore_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.explore_section__content {
+    text-align: center;
+}
+
+.explore_section__heading {
+    color: #FFEC00;
+}
+
+.explore_section__btn:hover {
+    background-color: #FFEC00;
+    color: #320032;
+    font-weight: 500;
+    border: none;
+}
+
+/*
+* Testimonial Section
+*/
 .testimonial-content {
     flex: 1;
     padding: 20px;
-    text-align: center; /* Center text within the container */
+    text-align: center;
 }
 
 .testimonial-image {
