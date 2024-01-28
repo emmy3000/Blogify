@@ -33,75 +33,203 @@ The project utilizes SQLite3, a lightweight and efficient relational database ma
 
 ## Project Structure
 
-Key Directories and Files:
+This section provides an in-depth look at the repository's content, showcasing its architecture and interconnections.
 
-**blogify_app:**
+**Project's Tree Directory Structure:**
 
-- Main application directory containing the core functionality of the app.
+```markdown
+❯ tree
+.
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── blogify_app
+│   ├── __init__.py
+│   ├── config_development.py
+│   ├── config_production.py
+│   ├── errors
+│   │   ├── __init__.py
+│   │   └── handlers.py
+│   ├── landing_bp
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── main
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── models.py
+│   ├── posts
+│   │   ├── __init__.py
+│   │   ├── forms.py
+│   │   └── routes.py
+│   ├── static
+│   │   ├── img
+│   │   │   ├── engage_community_image.jpg
+│   │   │   ├── group_discussion.jpg
+│   │   │   ├── responsive_design_image.jpg
+│   │   │   ├── seamless_sharing_image.jpg
+│   │   │   ├── share_posts.jpg
+│   │   │   ├── streamlined_navigation_image.jpg
+│   │   │   ├── testimonial_aisha.jpg
+│   │   │   ├── testimonial_chijioke.jpg
+│   │   │   ├── testimonial_emily.jpg
+│   │   │   ├── testimonial_faith.jpg
+│   │   │   ├── testimonial_javier.jpg
+│   │   │   ├── testimonial_mensah.jpg
+│   │   │   ├── testimonial_pierre.jpg
+│   │   │   ├── user_accounts_image.jpg
+│   │   │   ├── user_accounts_image_resized.jpg
+│   │   │   ├── write_posts.jpg
+│   │   │   ├── write_publish_image.jpg
+│   │   │   └── write_publish_image_resized.jpg
+│   │   ├── main.css
+│   │   └── profile_pics
+│   │       ├── 62633c87aa000ef4.jpg
+│   │       └── f053e6693594d69d.jpg
+│   ├── templates
+│   │   ├── about.html
+│   │   ├── account.html
+│   │   ├── create_post.html
+│   │   ├── errors
+│   │   │   ├── 403.html
+│   │   │   ├── 404.html
+│   │   │   └── 500.html
+│   │   ├── home.html
+│   │   ├── landing_page.html
+│   │   ├── layout.html
+│   │   ├── login.html
+│   │   ├── post.html
+│   │   ├── register.html
+│   │   ├── reset_request.html
+│   │   ├── reset_token.html
+│   │   └── user_posts.html
+│   └── users
+│       ├── __init__.py
+│       ├── forms.py
+│       ├── routes.py
+│       └── utils.py
+├── create_users_and_posts.py
+├── exp_token.py
+├── instance
+│   └── site.db
+├── requirements.txt
+├── run.py
+└── template.env
 
-    **config.py:**
-    
-    - Configuration settings mostly concerned with environment variables.
+13 directories, 63 files
 
-    **errors:**
+```
 
-    - Handling error pages and related logic.
+### Key Directorys and Files
 
-    **landing_bp:**
-                
-    - Landing page routes and functionality.
+**`blogify_app/`**
 
-    **main:**
+- The main application directory contains the core functionality of the app.
 
-    - Main application routes.
+  **`__init__.py`**
 
-    **posts:**
+  - A central initialization module that orchestrates the setup of crucial components like the database, user 
+    authentication, and email handling. It plays a pivotal role in configuring and initializing the entire Flask application.
 
-    - Posts related logic and routes.
+  **`config_production.py`**
 
-    **static:**
+  - Configuration settings for the production environment. Tailored for deployment with specific environment 
+    variables and settings.
 
-    - Static files like CSS and images.
+  **`config_development.py`**
 
-    **templates:**
+  - Configuration settings for the development environment. Optimized for debugging and testing during local 
+    development.
 
-    - HTML templates for different pages.
+  **`errors/handlers.py`**
 
-    **users:**
+  - Handling error pages and related logic.
 
-    - User-related functionality.
+  **`landing_bp/`**
 
-**instance:**
-                          
+  - Landing page routes and functionality.
+
+  **`main/`**
+
+  - Main application routes.
+
+  **`posts/`**
+
+  - Posts related logic and routes.
+
+  **`static/`**
+
+  - Static files containing the project's style sheet and images.
+
+  **`templates/`**
+
+  - HTML templates for different pages.
+
+  **`users/`**
+
+  - User-related functionality.
+
+**`instance/`**
+
 - Database or instance files.
 
-**requirements.txt:**
-                          
-- List of required Python packages.
+**`.env`**
 
-**run.py:**
+- Environment Configuration customized for saving important data assigned to certain environment variables such as 
+  database URLs, API keys, and other sensitive information. Referenced by `template.env`.
 
-- Entry point for running the application.
+**`.gitignore`**
 
-**template.env:**
+- Version Control Ignore List for specifying intentionally untracked files that Git should ignore, preventing 
+  unnecessary or sensitive files from being included in version control.
 
-- Template file describing the format environment variables are defined in the `.env` file.
+**`requirements.txt`**
 
-Other Files:
+- List of required Python packages necessary for the project's development.
 
-**create_users_and_posts.py:**
+**`run.py`**
 
-- Script used in creating dummy users and posts.
+- Project's entry point for running the application.
 
-**exp_token.py:**
+**`template.env`**
 
-- Script illustrating a basic example of how tokens are serialized and signed. This helps explain the foundation of 
-how users' password reset abilities can be achieved.
+- A template file describing the format of environment variables defined in the `.env` file.
 
-*Purpose:*
+### Example Test Files:
 
-This section outlines the purpose of key directories and files within the project. It provides a high-level overview,
-making it easier for contributors and developers to navigate and understand the organization of the codebase.
+**`create_users_and_posts.py`**
+
+- Script for creating dummy users and posts.
+
+**`exp_token.py`**
+
+- A script illustrating a basic example for demonstrating how tokens can be serialized and signed. Illustrates the 
+  foundation of users' password reset abilities.
+
+### Other Files:
+
+**`CODE_OF_CONDUCT.md`**
+
+- Outlines expected behavior for contributors, maintainers, and participants, fostering an inclusive and welcoming community.
+
+**`CONTRIBUTING.md`**
+
+- Guidelines provide information on how individuals can contribute to the project, including reporting issues, 
+  submitting feature requests, and guidelines for code contributions.
+
+**`LICENSE`**
+
+- Specifies the terms and conditions under which the project's source code and assets are distributed. Legally 
+  governs how others can use, modify, and distribute the project.
+
+**`README.md`**
+
+- The project's documentation provides essential information for users and contributors. Includes an overview of the project, installation instructions, usage examples, and other relevant details. A well-crafted readme enhances the project's accessibility and encourages collaboration.
+
+### Purpose:
+
+This organized structure offers a clear and comprehensive guide, making it easier for contributors and developers to 
+navigate and understand the organization of the codebase.
 
 ## Installation:
 
