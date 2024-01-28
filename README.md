@@ -375,7 +375,20 @@ git clone https://github.com/emmy3000/Blogify.git
 ## Usage:
 
 The application provides a user-friendly interface for navigating through the blog, creating and updating posts, and 
-managing user accounts. Detailed usage instructions can be found in the documentation.
+managing user accounts. If you'd like to explore the deployed version of Blogify, you can access it through your web browser.
+
+**Access the Deployed Project:**
+
+To access the deployed version of Blogify, simply open your web browser and enter the following IP address:
+
+[http://54.219.130.128](http://54.219.130.128)
+
+This will direct you to the live web application, where you can experience the features of Blogify firsthand.
+
+**Note:** Make sure you have a stable internet connection before accessing the deployed version.
+
+Detailed usage instructions for the locally hosted version can be found in the documentation.
+
 
 ## Contributing:
 
